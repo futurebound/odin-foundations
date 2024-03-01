@@ -8,6 +8,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin: 0;
   /* align-items: center; */
 }
@@ -122,6 +123,7 @@ a {
 /* ========================== QUOTE SECTION ======================= */
 .quote {
   background-color: #E5E7EB;
+  padding: 108px 24%;
 }
 
 .quote-text {
@@ -129,8 +131,19 @@ a {
   font-size: 36px;
   font-style: italic;
   /* font-weight: 300; */
+  margin: 0;
 }
 
+.quote-author {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: end;
+  padding-top: 8px;
+  padding-right: 72px;
+  margin: 0;
+}
+
+/* ========================== CTA SECTION ======================= */
 .cta-container {
   display: flex;
   align-items: center;
