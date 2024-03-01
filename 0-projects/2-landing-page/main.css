@@ -12,18 +12,12 @@ body {
   /* align-items: center; */
 }
 
-/* .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 10% 0 10%;
-} */
-
 .header, .hero, .footer {
   color: #F9FAF8;
   background-color: #1F2937;
 }
 
+/* ========================== HEADER SECTION ======================= */
 .header {
   display: flex;
   align-items: center;
@@ -49,13 +43,15 @@ a {
   text-decoration: none;
 }
 
+
 /* ========================== HERO SECTION ======================= */
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-wrap: wrap;
-  margin: 0;
+  padding: 108px 10%;
+  gap: 48px;
 }
 
 .hero-content {
@@ -76,6 +72,13 @@ a {
   margin: 0;
 }
 
+.hero img {
+  width: 600px;
+  height: 250px;
+}
+
+
+/* ========================== QUOTE SECTION ======================= */
 .quote {
   background-color: #E5E7EB;
 }
@@ -108,10 +111,11 @@ a {
 button {
   color: #F9FAF8;
   background-color: #3882F6;
+  font-size: 18px;
   border: none;
   border-radius: 5px;
-  width: 100px;
-  height: 30px;
+  width: 140px;
+  height: 32px;
 }
 
 .cta button {
