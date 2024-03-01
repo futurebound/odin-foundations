@@ -149,7 +149,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 72px 10%;
+  padding: 108px 10%;
 }
 
 .cta {
@@ -161,7 +161,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 48px;
 }
 
 .cta-text {
