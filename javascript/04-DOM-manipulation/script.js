@@ -1,5 +1,25 @@
 "use strict";
 
+
+function alertFunction(e) {
+	e.target.style.background = "blue"
+	console.log(e)
+	alert(e)
+}
+
+const btn = document.querySelector("#btn")
+btn.addEventListener("click", alertFunction)
+
+
+const buttons = document.querySelectorAll("#btn-container button")
+buttons.forEach((button) => {
+	button.addEventListener("click", () => {
+		alert(button.id)
+	})
+})
+
+
+
 /*
 <p style="color: red;">Hey I'm red!</p>
 <h3 style="color: blue;">I'm a blue h3!</h3>
@@ -9,18 +29,18 @@
 </div>
 */
 
-const body = document.querySelector("body")
+const container = document.querySelector(".container")
 
 
 const pRed = document.createElement("p")
 pRed.style.color = "red"
 pRed.textContent = "Hey I'm red!"
-body.append(pRed)
+container.append(pRed)
 
 const h3Blue = document.createElement("h3")
 h3Blue.style.color = "blue"
 h3Blue.textContent = "I'm a blue h3!"
-body.append(h3Blue)
+container.append(h3Blue)
 
 
 const div = document.createElement("div")
@@ -34,4 +54,4 @@ const pDiv = document.createElement("p")
 pDiv.textContent = "ME TOO!"
 div.appendChild(pDiv)
 
-body.append(div)
+container.append(div)
