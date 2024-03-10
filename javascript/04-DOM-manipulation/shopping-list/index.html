@@ -36,7 +36,25 @@
 			const addBtn = document.querySelector("#add-btn")
 
 			function addItem() {
-				alert("clicked")
+				const value = input.value
+				
+				const item = document.createElement("li")
+
+				const span = document.createElement("span")
+				span.textContent = value
+
+				const btn = document.createElement("button")
+				btn.textContent = "Delete"
+				btn.addEventListener("click", (e) => {
+					e.target.parentElement.remove()
+				})
+
+				item.appendChild(span)
+				item.appendChild(btn)
+				list.appendChild(item)
+
+				input.value = ""
+				input.focus()
 			}
 
 			addBtn.addEventListener("click", addItem)
