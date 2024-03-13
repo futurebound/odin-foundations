@@ -27,11 +27,23 @@ function generateGrid() {
     pixel.setAttribute("class", "pixel")
     pixel.style.minWidth = `${widthRatio}px`
     pixel.style.minHeight = `${widthRatio}px`
-    // pixel.setAttribute("min-height", `${widthRatio}px`)
-    // pixel.setAttribute("flex-basis", `${ratio}%`)
   
+    // add hover listener to progressively darken pixels on successive hovers
     pixel.addEventListener("mouseover", () => {
-      pixel.classList.add("hovered")
+      if (!pixel.classList.contains("hovered")) {
+        pixel.classList.add("hovered")
+
+      } else { // 2nd+ time hovering
+        // extract the current alpha value
+        // if alpha < 1.0, add 0.1 to it
+        const oldBackgroundColor = 
+            getComputedStyle(pixel).getPropertyValue("background-color")
+        let colors = oldBackgroundColor.split(", ")
+        if (parseFloat(colors[3]) < 1.0) {
+          colors[3] = parseFloat(colors[3]) + 0.1
+          pixel.style.backgroundColor = `${colors})`
+        } 
+      }
     })
 
     container.appendChild(pixel)
