@@ -53,18 +53,29 @@ operators.forEach(operator => {
   })
 })
 
+const dot = document.querySelector(".dot")
+dot.addEventListener("click", () => {
+  if (!display.textContent.includes(".")) {
+    display.textContent += "."
+  }
+})
+
 const clear = document.querySelector(".clear")
 clear.addEventListener("click", () => {
   display.textContent = ""
 })
 
+const backspace = document.querySelector(".backspace")
+backspace.addEventListener("click", () => {
+  const length = display.textContent.length
+  display.textContent = display.textContent.substring(0, length - 1)
+})
+
 const submit = document.querySelector(".submit")
 submit.addEventListener("click", () => {
-  let input = display.textContent
-  input = input.split(" ")
-  // console.log(`before: ${input}`)
-  // console.log(`isNaN: ${isNaN(parseInt(input[2]))}`)
-  if (input.length < 3 || isNaN(parseInt(input[2]))) {
+  const original = display.textContent
+  let input = original.split(" ")
+  if (input.length < 3 || isNaN(parseInt(input[input.length - 1]))) {
     alert("please enter a valid equation to evaluate")
 
   } else {
@@ -72,20 +83,28 @@ submit.addEventListener("click", () => {
     //  element / number remaining
     // e.g. ["12", "+", "3"] => ["15"]
     while (input.length > 1) {
-      const a = parseInt(input[0])
-      const b = parseInt(input[2])
+      let a = input[0]
+      let b = input[2]
       const operator = input[1]
+
+      if (isNaN(parseInt(a)) || isNaN(parseInt(b))) {
+        alert("please enter a valid equation to evaluate")
+        display.textContent = original
+        return
+      } else if (operator === "/" && b === 0) {
+        alert("nah divide by something else")
+        display.textContent = original
+        return
+      }
+
+      a = a.includes(".") ? parseFloat(input[0]) : parseInt(input[0])
+      b = b.includes(".") ? parseFloat(input[2]) : parseInt(input[2])
+
       const result = operate(a, b, operator)
-  
       input[2] = result
       input = input.slice(2)
-  
-      // console.log(`during: ${input}`)
     }
   
-    // console.log(`after: ${input}`)
-  
     display.textContent = input
-
   }
 })
